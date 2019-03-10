@@ -2,6 +2,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 
 import javax.swing.*;
 
@@ -13,27 +14,36 @@ public class View extends BorderPane {
 
     static GraphicsContext gc;
 
-    Button button;
+    Button draw,remove;
+
+    HBox box;
 
     public View(){
 
         canvas=new Canvas();
-
         canvas.setHeight(400);
         canvas.setWidth(400);
 
-        gc.getCanvas().getGraphicsContext2D();
+        gc=canvas.getGraphicsContext2D();
 
         setCenter(canvas);
 
-        button=new Button();
+        draw=new Button();
+        draw.setMaxSize(100,100);
+        draw.setText("Draw");
 
-        button.setMaxSize(10,10);
+        remove=new Button();
+        remove.setMaxSize(100,100);
+        remove.setText("Remove");
 
-        setTop(button);
-        button.setOnAction(e-> controller.draw());
+        box=new HBox(draw,remove);
+
+        setTop(box);
 
 
+        draw.setOnAction(e-> controller.draw());
+
+        remove.setOnAction(e-> controller.remove());
     }
 
     public void addController(IController con){
@@ -41,7 +51,7 @@ public class View extends BorderPane {
 
     }
 
-    public Canvas getCanvas(){
+    public Canvas getCanvas() {
         return canvas;
     }
     public GraphicsContext getGraphicsContext(){
