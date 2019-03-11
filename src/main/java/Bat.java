@@ -2,9 +2,9 @@
 import javafx.scene.canvas.GraphicsContext;
 
 public class Bat {
-    int x=0;
-    int y=0;
-    static GraphicsContext gc;
+    private int x=0;
+    private int y=0;
+    private static GraphicsContext gc;
 
 
     public Bat(GraphicsContext gc){
@@ -30,5 +30,11 @@ public class Bat {
         if(y>=0){
             y=y-15;
         }
+    }
+    public int getX(){
+        return x;
+    }
+    public int getY(){
+        return y;
     }
 }

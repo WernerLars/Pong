@@ -22,24 +22,24 @@ public class Main extends Application {
             public void handle(KeyEvent event) {
                 String s=""+event.getCode();
                 if("A".equals(s)){
-                    controller.remove();
+
                     controller.getLeftBat().moveUp();
-                    controller.draw();
+
                 }
                 if("S".equals(s)){
-                    controller.remove();
+
                     controller.getLeftBat().moveDown();
-                    controller.draw();
+
                 }
                 if("K".equals(s)){
-                    controller.remove();
+
                     controller.getRightBat().moveUp();
-                    controller.draw();
+
                 }
                 if("L".equals(s)){
-                    controller.remove();
+
                     controller.getRightBat().moveDown();
-                    controller.draw();
+
                 }
             }
         });
